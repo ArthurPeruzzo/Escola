@@ -1,6 +1,6 @@
 package arthur.com.example.escola.Aluno.Controller;
 
-import arthur.com.example.escola.Aluno.Aluno;
+import arthur.com.example.escola.Aluno.Entidade.Aluno;
 import arthur.com.example.escola.Aluno.Service.AlunoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

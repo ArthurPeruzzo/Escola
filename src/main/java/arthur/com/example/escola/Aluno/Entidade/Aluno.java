@@ -1,4 +1,4 @@
-package arthur.com.example.escola.Aluno;
+package arthur.com.example.escola.Aluno.Entidade;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
