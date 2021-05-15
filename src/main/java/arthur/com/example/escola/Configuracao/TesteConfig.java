@@ -2,6 +2,8 @@ package arthur.com.example.escola.Configuracao;
 
 import arthur.com.example.escola.Aluno.Entidade.Aluno;
 import arthur.com.example.escola.Aluno.Repository.AlunoRepository;
+import arthur.com.example.escola.Avaliacao.Entidade.Avaliacao;
+import arthur.com.example.escola.Avaliacao.Repository.AvaliacaoRepository;
 import arthur.com.example.escola.TipoAvaliacao.Entidade.TipoAvaliacao;
 import arthur.com.example.escola.TipoAvaliacao.Repository.TipoAvaliacaoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +23,9 @@ public class TesteConfig implements CommandLineRunner {
     @Autowired
     private TipoAvaliacaoRepository tipoAvaliacaoRepository;
 
+    @Autowired
+    private AvaliacaoRepository avaliacaoRepository;
+
     @Override
     public void run(String... args) throws Exception {//irá executar o método run assim que o programa for executado
 
@@ -39,6 +44,15 @@ public class TesteConfig implements CommandLineRunner {
         TipoAvaliacao trabalhoBimestral = new TipoAvaliacao(null, "Trabalho bimestral", 3.0);
         TipoAvaliacao provaBimestral = new TipoAvaliacao(null, "Prova bimestral", 3.0);
         tipoAvaliacaoRepository.saveAll(Arrays.asList(partSalaDeAula, entregaDasTarefas, trabalhoBimestral, provaBimestral));
+
+        //adicionando Avaliacao no banco de dados
+
+        Avaliacao avaliacao1 = new Avaliacao(null, 6.0, partSalaDeAula);
+        Avaliacao avaliacao2 = new Avaliacao(null, 7.5, entregaDasTarefas);
+        Avaliacao avaliacao3 = new Avaliacao(null, 9.0, trabalhoBimestral);
+        Avaliacao avaliacao4 = new Avaliacao(null, 8.0, provaBimestral);
+        avaliacaoRepository.saveAll(Arrays.asList(avaliacao1, avaliacao2, avaliacao3, avaliacao4));
+
 
 
 

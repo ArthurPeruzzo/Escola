@@ -1,7 +1,12 @@
 package arthur.com.example.escola.TipoAvaliacao.Entidade;
 
+import arthur.com.example.escola.Avaliacao.Entidade.Avaliacao;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 @Entity
 @Table(name = "tb_TipoAvaliacao")
@@ -12,6 +17,10 @@ public class TipoAvaliacao implements Serializable {
     private Long id;
     private String nomeAvaliacao;
     private Double pesoAvaliacao;
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "tipoAvaliacao")
+    List<Avaliacao> avaliacoes = new ArrayList<>();
 
     public TipoAvaliacao(){
     }
@@ -44,6 +53,10 @@ public class TipoAvaliacao implements Serializable {
 
     public void setPesoAvaliacao(Double pesoAvaliacao) {
         this.pesoAvaliacao = pesoAvaliacao;
+    }
+
+    public List<Avaliacao> getAvaliacoes() {
+        return avaliacoes;
     }
 
     @Override

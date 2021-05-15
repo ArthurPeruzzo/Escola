@@ -24,6 +24,7 @@ public class AlunoController {
     public Aluno buscarPorMatricula(@PathVariable Long matricula){
         return alunoService.buscarPorMatricula(matricula);
     }
+
     @ResponseStatus(HttpStatus.CREATED) //codigo 201
     @PostMapping
     public void inserirAluno(@RequestBody  Aluno aluno){ //com o ResquestBody, o aluno passado é convertido para objeto
