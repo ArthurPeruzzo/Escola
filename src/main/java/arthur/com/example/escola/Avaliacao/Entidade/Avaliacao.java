@@ -1,5 +1,6 @@
 package arthur.com.example.escola.Avaliacao.Entidade;
 
+import arthur.com.example.escola.Bimestre.Entidade.Bimestre;
 import arthur.com.example.escola.TipoAvaliacao.Entidade.TipoAvaliacao;
 
 import javax.persistence.*;
@@ -19,13 +20,18 @@ public class Avaliacao implements Serializable {
     @JoinColumn(name = "tipoAvaliacao_id") //nome da chave estrangeira
     private TipoAvaliacao tipoAvaliacao;
 
+    @ManyToOne
+    @JoinColumn(name = "avaliacao_id") //nome da chave estrangeira
+    private Bimestre bimestre;
+
     public Avaliacao(){
     }
 
-    public Avaliacao(Long id, Double notaAvaliacao, TipoAvaliacao tipoAvaliacao) {
+    public Avaliacao(Long id, Double notaAvaliacao, TipoAvaliacao tipoAvaliacao, Bimestre bimestre) {
         this.id = id;
         this.notaAvaliacao = notaAvaliacao;
         this.tipoAvaliacao = tipoAvaliacao;
+        this.bimestre = bimestre;
     }
 
     public Long getId() {
@@ -50,6 +56,14 @@ public class Avaliacao implements Serializable {
 
     public void setTipoAvaliacao(TipoAvaliacao tipoAvaliacao) {
         this.tipoAvaliacao = tipoAvaliacao;
+    }
+
+    public Bimestre getBimestre() {
+        return bimestre;
+    }
+
+    public void setBimestre(Bimestre bimestre) {
+        this.bimestre = bimestre;
     }
 
     @Override

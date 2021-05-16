@@ -52,20 +52,20 @@ public class TesteConfig implements CommandLineRunner {
         TipoAvaliacao provaBimestral = new TipoAvaliacao(null, "Prova bimestral", 3.0);
         tipoAvaliacaoRepository.saveAll(Arrays.asList(partSalaDeAula, entregaDasTarefas, trabalhoBimestral, provaBimestral));
 
-        //adicionando Avaliacao no banco de dados
-
-        Avaliacao avaliacao1 = new Avaliacao(null, 6.0, partSalaDeAula);
-        Avaliacao avaliacao2 = new Avaliacao(null, 7.5, entregaDasTarefas);
-        Avaliacao avaliacao3 = new Avaliacao(null, 9.0, trabalhoBimestral);
-        Avaliacao avaliacao4 = new Avaliacao(null, 8.0, provaBimestral);
-        avaliacaoRepository.saveAll(Arrays.asList(avaliacao1, avaliacao2, avaliacao3, avaliacao4));
-
         //adcionando Bimestre ao bando de dados
         Bimestre bimestre1 = new Bimestre(null, BimestreEnum.BIMESTRE_1, LocalDate.of(2020, 2, 4), LocalDate.of(2020, 4, 7));
         Bimestre bimestre2 = new Bimestre(null, BimestreEnum.BIMESTRE_2, LocalDate.of(2020, 4, 23), LocalDate.of(2020, 6, 25));
         Bimestre bimestre3 = new Bimestre(null, BimestreEnum.BIMESTRE_3, LocalDate.of(2020, 7, 21), LocalDate.of(2020, 9, 18));
         Bimestre bimestre4 = new Bimestre(null, BimestreEnum.BIMESTRE_4, LocalDate.of(2020, 10, 5), LocalDate.of(2020, 12, 7));
         bimestreRepository.saveAll(Arrays.asList(bimestre1, bimestre2, bimestre3, bimestre4));
+
+        //adicionando Avaliacao no banco de dados
+
+        Avaliacao avaliacao1 = new Avaliacao(null, 6.0, partSalaDeAula, bimestre1);
+        Avaliacao avaliacao2 = new Avaliacao(null, 7.5, entregaDasTarefas, bimestre2);
+        Avaliacao avaliacao3 = new Avaliacao(null, 9.0, trabalhoBimestral, bimestre3);
+        Avaliacao avaliacao4 = new Avaliacao(null, 8.0, provaBimestral, bimestre4);
+        avaliacaoRepository.saveAll(Arrays.asList(avaliacao1, avaliacao2, avaliacao3, avaliacao4));
 
 
 

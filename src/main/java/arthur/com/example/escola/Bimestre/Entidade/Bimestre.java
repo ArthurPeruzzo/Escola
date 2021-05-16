@@ -1,10 +1,14 @@
 package arthur.com.example.escola.Bimestre.Entidade;
 
+import arthur.com.example.escola.Avaliacao.Entidade.Avaliacao;
 import arthur.com.example.escola.Enums.BimestreEnum;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 @Entity
@@ -17,6 +21,10 @@ public class Bimestre implements Serializable {
     private BimestreEnum bimestre;
     private LocalDate inicioBimestre;
     private LocalDate fimBimestre;
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "bimestre")
+    private List<Avaliacao> avaliacoes = new ArrayList<>();
 
     public Bimestre(){
     }
@@ -58,6 +66,10 @@ public class Bimestre implements Serializable {
 
     public void setFimBimestre(LocalDate fimBimestre) {
         this.fimBimestre = fimBimestre;
+    }
+
+    public List<Avaliacao> getAvaliacoes() {
+        return avaliacoes;
     }
 
     @Override
