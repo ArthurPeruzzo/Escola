@@ -1,7 +1,5 @@
-package arthur.com.example.escola.Avaliacao.Controller;
+package arthur.com.example.escola.Avaliacao;
 
-import arthur.com.example.escola.Avaliacao.Entidade.Avaliacao;
-import arthur.com.example.escola.Avaliacao.Service.AvaliacaoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

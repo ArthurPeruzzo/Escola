@@ -1,7 +1,9 @@
-package arthur.com.example.escola.Avaliacao.Entidade;
+package arthur.com.example.escola.Avaliacao;
 
-import arthur.com.example.escola.Bimestre.Entidade.Bimestre;
-import arthur.com.example.escola.TipoAvaliacao.Entidade.TipoAvaliacao;
+import arthur.com.example.escola.Aluno.Aluno;
+import arthur.com.example.escola.Bimestre.Bimestre;
+import arthur.com.example.escola.TipoAvaliacao.TipoAvaliacao;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -24,14 +26,20 @@ public class Avaliacao implements Serializable {
     @JoinColumn(name = "avaliacao_id") //nome da chave estrangeira
     private Bimestre bimestre;
 
+    @JsonIgnore
+    @ManyToOne
+    @JoinColumn(name = "aluno_id")
+    private Aluno aluno;
+
     public Avaliacao(){
     }
 
-    public Avaliacao(Long id, Double notaAvaliacao, TipoAvaliacao tipoAvaliacao, Bimestre bimestre) {
+    public Avaliacao(Long id, Double notaAvaliacao, TipoAvaliacao tipoAvaliacao, Bimestre bimestre, Aluno aluno) {
         this.id = id;
         this.notaAvaliacao = notaAvaliacao;
         this.tipoAvaliacao = tipoAvaliacao;
         this.bimestre = bimestre;
+        this.aluno = aluno;
     }
 
     public Long getId() {
@@ -64,6 +72,14 @@ public class Avaliacao implements Serializable {
 
     public void setBimestre(Bimestre bimestre) {
         this.bimestre = bimestre;
+    }
+
+    public Aluno getAluno() {
+        return aluno;
+    }
+
+    public void setAluno(Aluno aluno) {
+        this.aluno = aluno;
     }
 
     @Override

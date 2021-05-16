@@ -1,7 +1,7 @@
-package arthur.com.example.escola.Aluno.Service;
+package arthur.com.example.escola.Aluno;
 
-import arthur.com.example.escola.Aluno.Entidade.Aluno;
-import arthur.com.example.escola.Aluno.Repository.AlunoRepository;
+import arthur.com.example.escola.Aluno.Aluno;
+import arthur.com.example.escola.Aluno.AlunoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

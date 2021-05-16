@@ -1,7 +1,5 @@
-package arthur.com.example.escola.Bimestre.Service;
+package arthur.com.example.escola.Bimestre;
 
-import arthur.com.example.escola.Bimestre.Entidade.Bimestre;
-import arthur.com.example.escola.Bimestre.Repository.BimestreRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

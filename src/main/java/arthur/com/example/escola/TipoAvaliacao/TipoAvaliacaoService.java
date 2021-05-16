@@ -1,7 +1,5 @@
-package arthur.com.example.escola.TipoAvaliacao.Service;
+package arthur.com.example.escola.TipoAvaliacao;
 
-import arthur.com.example.escola.TipoAvaliacao.Repository.TipoAvaliacaoRepository;
-import arthur.com.example.escola.TipoAvaliacao.Entidade.TipoAvaliacao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

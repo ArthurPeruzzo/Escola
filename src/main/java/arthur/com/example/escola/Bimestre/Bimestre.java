@@ -1,6 +1,6 @@
-package arthur.com.example.escola.Bimestre.Entidade;
+package arthur.com.example.escola.Bimestre;
 
-import arthur.com.example.escola.Avaliacao.Entidade.Avaliacao;
+import arthur.com.example.escola.Avaliacao.Avaliacao;
 import arthur.com.example.escola.Enums.BimestreEnum;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 

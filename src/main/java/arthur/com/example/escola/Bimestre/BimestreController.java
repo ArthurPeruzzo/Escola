@@ -1,7 +1,5 @@
-package arthur.com.example.escola.Bimestre.Controller;
+package arthur.com.example.escola.Bimestre;
 
-import arthur.com.example.escola.Bimestre.Entidade.Bimestre;
-import arthur.com.example.escola.Bimestre.Service.BimestreService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

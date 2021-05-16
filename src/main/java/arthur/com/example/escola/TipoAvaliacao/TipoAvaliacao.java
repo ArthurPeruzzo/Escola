@@ -1,6 +1,6 @@
-package arthur.com.example.escola.TipoAvaliacao.Entidade;
+package arthur.com.example.escola.TipoAvaliacao;
 
-import arthur.com.example.escola.Avaliacao.Entidade.Avaliacao;
+import arthur.com.example.escola.Avaliacao.Avaliacao;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
