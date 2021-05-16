@@ -4,6 +4,9 @@ import arthur.com.example.escola.Aluno.Entidade.Aluno;
 import arthur.com.example.escola.Aluno.Repository.AlunoRepository;
 import arthur.com.example.escola.Avaliacao.Entidade.Avaliacao;
 import arthur.com.example.escola.Avaliacao.Repository.AvaliacaoRepository;
+import arthur.com.example.escola.Bimestre.Entidade.Bimestre;
+import arthur.com.example.escola.Bimestre.Repository.BimestreRepository;
+import arthur.com.example.escola.Enums.BimestreEnum;
 import arthur.com.example.escola.TipoAvaliacao.Entidade.TipoAvaliacao;
 import arthur.com.example.escola.TipoAvaliacao.Repository.TipoAvaliacaoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +14,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
 
+import java.time.LocalDate;
 import java.util.Arrays;
 
 @Configuration //fala que essa classe é especifica para configuração
@@ -25,6 +29,9 @@ public class TesteConfig implements CommandLineRunner {
 
     @Autowired
     private AvaliacaoRepository avaliacaoRepository;
+
+    @Autowired
+    private BimestreRepository bimestreRepository;
 
     @Override
     public void run(String... args) throws Exception {//irá executar o método run assim que o programa for executado
@@ -52,6 +59,13 @@ public class TesteConfig implements CommandLineRunner {
         Avaliacao avaliacao3 = new Avaliacao(null, 9.0, trabalhoBimestral);
         Avaliacao avaliacao4 = new Avaliacao(null, 8.0, provaBimestral);
         avaliacaoRepository.saveAll(Arrays.asList(avaliacao1, avaliacao2, avaliacao3, avaliacao4));
+
+        //adcionando Bimestre ao bando de dados
+        Bimestre bimestre1 = new Bimestre(null, BimestreEnum.BIMESTRE_1, LocalDate.of(2020, 2, 4), LocalDate.of(2020, 4, 7));
+        Bimestre bimestre2 = new Bimestre(null, BimestreEnum.BIMESTRE_2, LocalDate.of(2020, 4, 23), LocalDate.of(2020, 6, 25));
+        Bimestre bimestre3 = new Bimestre(null, BimestreEnum.BIMESTRE_3, LocalDate.of(2020, 7, 21), LocalDate.of(2020, 9, 18));
+        Bimestre bimestre4 = new Bimestre(null, BimestreEnum.BIMESTRE_4, LocalDate.of(2020, 10, 5), LocalDate.of(2020, 12, 7));
+        bimestreRepository.saveAll(Arrays.asList(bimestre1, bimestre2, bimestre3, bimestre4));
 
 
 
