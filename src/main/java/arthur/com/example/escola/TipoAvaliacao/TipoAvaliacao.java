@@ -25,8 +25,7 @@ public class TipoAvaliacao implements Serializable {
     public TipoAvaliacao(){
     }
 
-    public TipoAvaliacao(Long id, String nomeAvaliacao, Double pesoAvaliacao) {
-        this.id = id;
+    public TipoAvaliacao( String nomeAvaliacao, Double pesoAvaliacao) {
         this.nomeAvaliacao = nomeAvaliacao;
         this.pesoAvaliacao = pesoAvaliacao;
     }

@@ -2,6 +2,7 @@ package arthur.com.example.escola.Bimestre;
 
 import arthur.com.example.escola.Avaliacao.Avaliacao;
 import arthur.com.example.escola.Enums.BimestreEnum;
+import arthur.com.example.escola.Presenca.Presenca;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
@@ -26,11 +27,14 @@ public class Bimestre implements Serializable {
     @OneToMany(mappedBy = "bimestre")
     private List<Avaliacao> avaliacoes = new ArrayList<>();
 
+    @JsonIgnore
+    @OneToMany(mappedBy = "bimestre")
+    private List<Presenca> presencas = new ArrayList<>();
+
     public Bimestre(){
     }
 
-    public Bimestre(Long id, BimestreEnum bimestre, LocalDate inicioBimestre, LocalDate fimBimestre) {
-        this.id = id;
+    public Bimestre(BimestreEnum bimestre, LocalDate inicioBimestre, LocalDate fimBimestre) {
         this.bimestre = bimestre;
         this.inicioBimestre = inicioBimestre;
         this.fimBimestre = fimBimestre;
@@ -70,6 +74,10 @@ public class Bimestre implements Serializable {
 
     public List<Avaliacao> getAvaliacoes() {
         return avaliacoes;
+    }
+
+    public List<Presenca> getPresencas() {
+        return presencas;
     }
 
     @Override

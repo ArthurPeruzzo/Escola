@@ -34,8 +34,7 @@ public class Avaliacao implements Serializable {
     public Avaliacao(){
     }
 
-    public Avaliacao(Long id, Double notaAvaliacao, TipoAvaliacao tipoAvaliacao, Bimestre bimestre, Aluno aluno) {
-        this.id = id;
+    public Avaliacao(Double notaAvaliacao, TipoAvaliacao tipoAvaliacao, Bimestre bimestre, Aluno aluno) {
         this.notaAvaliacao = notaAvaliacao;
         this.tipoAvaliacao = tipoAvaliacao;
         this.bimestre = bimestre;
