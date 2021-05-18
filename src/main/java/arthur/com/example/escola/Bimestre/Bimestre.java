@@ -1,5 +1,6 @@
 package arthur.com.example.escola.Bimestre;
 
+import arthur.com.example.escola.Aluno.Aluno;
 import arthur.com.example.escola.Avaliacao.Avaliacao;
 import arthur.com.example.escola.Enums.BimestreEnum;
 import arthur.com.example.escola.Presenca.Presenca;
@@ -8,6 +9,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -30,6 +32,11 @@ public class Bimestre implements Serializable {
     @JsonIgnore
     @OneToMany(mappedBy = "bimestre")
     private List<Presenca> presencas = new ArrayList<>();
+
+    @JsonIgnore
+    @ManyToMany(mappedBy = "bimestres")
+    private List<Aluno> alunos = new ArrayList<>();
+
 
     public Bimestre(){
     }
@@ -78,6 +85,15 @@ public class Bimestre implements Serializable {
 
     public List<Presenca> getPresencas() {
         return presencas;
+    }
+
+    public List<Aluno> getAlunos() {
+        return alunos;
+    }
+
+    public Long getdiasLetivosBimestre(){
+
+        return ChronoUnit.DAYS.between(inicioBimestre, fimBimestre);
     }
 
     @Override

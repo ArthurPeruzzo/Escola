@@ -29,6 +29,13 @@ public class Aluno implements Serializable {
     @OneToMany(mappedBy = "aluno")
     private List<Presenca> presencas = new ArrayList<>();
 
+
+    @ManyToMany         //nomeTabela        //nome da tabela aluno e bimestre
+    @JoinTable(name = "tb_AlunoBimestre",
+            joinColumns = @JoinColumn(name = "aluno_id"),
+            inverseJoinColumns = @JoinColumn(name = "bimestre_id"))
+    private List<Bimestre> bimestres = new ArrayList<>();
+
     public Aluno(){
     }
 
@@ -79,7 +86,11 @@ public class Aluno implements Serializable {
         return presencas;
     }
 
-    public List<NotaBimestre> MediaAlunoPorBimestre(){
+    public List<Bimestre> getBimestres() {
+        return bimestres;
+    }
+
+    public List<NotaBimestre> mediaAlunoPorBimestre(){
         List<NotaBimestre> returnNotas = new ArrayList<>();
         Map<Bimestre, List<Avaliacao>> agrupados = agrupar(avaliacoes);
 
@@ -127,13 +138,13 @@ public class Aluno implements Serializable {
     }
     public double getMediaFinal(){
         double mediaFinal = 0.0;
-        for(NotaBimestre media : MediaAlunoPorBimestre()){
+        for(NotaBimestre media : mediaAlunoPorBimestre()){
             mediaFinal += media.getNota();
         }
         return mediaFinal/4;
     }
 
-    public List<PresencaBimestre>SomaDasFaltas(){
+    public List<PresencaBimestre> somaDasFaltas(){
         List<PresencaBimestre> returnPresencas = new ArrayList<>();
         Map<Bimestre, List<Presenca>> agrupados = agruparPresencas(presencas);
 
@@ -174,11 +185,12 @@ public class Aluno implements Serializable {
 
     public int getTotalFaltas(){
         int totalFaltas=0;
-        for(PresencaBimestre falta : SomaDasFaltas()){
+        for(PresencaBimestre falta : somaDasFaltas()){
             totalFaltas += falta.getPresenca();
         }
         return totalFaltas;
     }
+
 
     @Override
     public boolean equals(Object o) {

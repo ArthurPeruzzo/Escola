@@ -57,11 +57,12 @@ public class TesteConfig implements CommandLineRunner {
         TipoAvaliacao provaBimestral = new TipoAvaliacao("Prova bimestral", 3.0);
         tipoAvaliacaoRepository.saveAll(Arrays.asList(partSalaDeAula, entregaDasTarefas, trabalhoBimestral, provaBimestral));
 
+
         //adcionando Bimestre ao bando de dados
-        Bimestre bimestre1 = new Bimestre(BimestreEnum.BIMESTRE_1, LocalDate.of(2020, 2, 4), LocalDate.of(2020, 4, 7));
-        Bimestre bimestre2 = new Bimestre(BimestreEnum.BIMESTRE_2, LocalDate.of(2020, 4, 23), LocalDate.of(2020, 6, 25));
-        Bimestre bimestre3 = new Bimestre(BimestreEnum.BIMESTRE_3, LocalDate.of(2020, 7, 21), LocalDate.of(2020, 9, 18));
-        Bimestre bimestre4 = new Bimestre(BimestreEnum.BIMESTRE_4, LocalDate.of(2020, 10, 5), LocalDate.of(2020, 12, 7));
+        Bimestre bimestre1 = new Bimestre(BimestreEnum.BIMESTRE_1, LocalDate.of(2020, 2, 4), LocalDate.of(2020, 3, 15));
+        Bimestre bimestre2 = new Bimestre(BimestreEnum.BIMESTRE_2, LocalDate.of(2020, 4, 23), LocalDate.of(2020, 6, 2));
+        Bimestre bimestre3 = new Bimestre(BimestreEnum.BIMESTRE_3, LocalDate.of(2020, 7, 21), LocalDate.of(2020, 8, 30));
+        Bimestre bimestre4 = new Bimestre(BimestreEnum.BIMESTRE_4, LocalDate.of(2020, 10, 5), LocalDate.of(2020, 11, 14));
         bimestreRepository.saveAll(Arrays.asList(bimestre1, bimestre2, bimestre3, bimestre4));
 
         //adicionando Avaliacoes por bimestre do Pedro no banco de dados
@@ -174,6 +175,12 @@ public class TesteConfig implements CommandLineRunner {
         Presenca presencaJoseB3 = new Presenca(10, bimestre3, Jose);
         Presenca presencaJoseB4 = new Presenca(11, bimestre4, Jose);
         presencaRepository.saveAll(Arrays.asList(presencaJoseB1, presencaJoseB2, presencaJoseB3, presencaJoseB4));
+
+        //associações dos alunos aos bimestres
+        Pedro.getBimestres().addAll(Arrays.asList(bimestre1, bimestre2, bimestre3, bimestre4));
+        Maria.getBimestres().addAll(Arrays.asList(bimestre1, bimestre2, bimestre3, bimestre4));
+        Jose.getBimestres().addAll(Arrays.asList(bimestre1, bimestre2, bimestre3, bimestre4));
+        alunoRepository.saveAll(Arrays.asList(Pedro, Maria, Jose));
 
     }
 
