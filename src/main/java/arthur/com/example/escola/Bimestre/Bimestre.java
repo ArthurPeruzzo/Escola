@@ -33,7 +33,7 @@ public class Bimestre implements Serializable {
     @OneToMany(mappedBy = "bimestre")
     private List<Presenca> presencas = new ArrayList<>();
 
-    @JsonIgnore
+
     @ManyToMany(mappedBy = "bimestres")
     private List<Aluno> alunos = new ArrayList<>();
 

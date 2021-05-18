@@ -68,30 +68,30 @@ public class TesteConfig implements CommandLineRunner {
         //adicionando Avaliacoes por bimestre do Pedro no banco de dados
         //1° Bimestre - Pedro
         Avaliacao avaliacao1PedroB1 = new Avaliacao( 6.0, partSalaDeAula, bimestre1, Pedro);
-        Avaliacao avaliacao2PedroB1 = new Avaliacao(7.5, entregaDasTarefas, bimestre1, Pedro);
-        Avaliacao avaliacao3PedroB1 = new Avaliacao(9.0, trabalhoBimestral, bimestre1, Pedro);
-        Avaliacao avaliacao4PedroB1 = new Avaliacao(8.0, provaBimestral, bimestre1, Pedro);
+        Avaliacao avaliacao2PedroB1 = new Avaliacao(6.0, entregaDasTarefas, bimestre1, Pedro);
+        Avaliacao avaliacao3PedroB1 = new Avaliacao(6.0, trabalhoBimestral, bimestre1, Pedro);
+        Avaliacao avaliacao4PedroB1 = new Avaliacao(2.0, provaBimestral, bimestre1, Pedro);
         avaliacaoRepository.saveAll(Arrays.asList(avaliacao1PedroB1, avaliacao2PedroB1, avaliacao3PedroB1, avaliacao4PedroB1));
 
         //2° Bimestre - Pedro
-        Avaliacao avaliacao1PedroB2 = new Avaliacao(8.0, partSalaDeAula, bimestre2, Pedro);
-        Avaliacao avaliacao2PedroB2 = new Avaliacao(9.5, entregaDasTarefas, bimestre2, Pedro);
-        Avaliacao avaliacao3PedroB2 = new Avaliacao(9.0, trabalhoBimestral, bimestre2, Pedro);
-        Avaliacao avaliacao4PedroB2 = new Avaliacao( 8.5, provaBimestral, bimestre2, Pedro);
+        Avaliacao avaliacao1PedroB2 = new Avaliacao(5.0, partSalaDeAula, bimestre2, Pedro);
+        Avaliacao avaliacao2PedroB2 = new Avaliacao(6.0, entregaDasTarefas, bimestre2, Pedro);
+        Avaliacao avaliacao3PedroB2 = new Avaliacao(6.0, trabalhoBimestral, bimestre2, Pedro);
+        Avaliacao avaliacao4PedroB2 = new Avaliacao( 6.0, provaBimestral, bimestre2, Pedro);
         avaliacaoRepository.saveAll(Arrays.asList(avaliacao1PedroB2, avaliacao2PedroB2, avaliacao3PedroB2, avaliacao4PedroB2));
 
         //3° Bimestre - Pedro
-        Avaliacao avaliacao1PedroB3 = new Avaliacao( 9.0, partSalaDeAula, bimestre3, Pedro);
-        Avaliacao avaliacao2PedroB3 = new Avaliacao( 10.0, entregaDasTarefas, bimestre3, Pedro);
-        Avaliacao avaliacao3PedroB3 = new Avaliacao( 9.5, trabalhoBimestral, bimestre3, Pedro);
-        Avaliacao avaliacao4PedroB3 = new Avaliacao( 9.5, provaBimestral, bimestre3, Pedro);
+        Avaliacao avaliacao1PedroB3 = new Avaliacao( 6.0, partSalaDeAula, bimestre3, Pedro);
+        Avaliacao avaliacao2PedroB3 = new Avaliacao( 6.0, entregaDasTarefas, bimestre3, Pedro);
+        Avaliacao avaliacao3PedroB3 = new Avaliacao( 6.5, trabalhoBimestral, bimestre3, Pedro);
+        Avaliacao avaliacao4PedroB3 = new Avaliacao( 4.0, provaBimestral, bimestre3, Pedro);
         avaliacaoRepository.saveAll(Arrays.asList(avaliacao1PedroB3, avaliacao2PedroB3, avaliacao3PedroB3, avaliacao4PedroB3));
 
         //4° Bimestre - Pedro
-        Avaliacao avaliacao1PedroB4 = new Avaliacao( 8.0, partSalaDeAula, bimestre4, Pedro);
-        Avaliacao avaliacao2PedroB4 = new Avaliacao( 9.0, entregaDasTarefas, bimestre4, Pedro);
-        Avaliacao avaliacao3PedroB4 = new Avaliacao( 8.5, trabalhoBimestral, bimestre4, Pedro);
-        Avaliacao avaliacao4PedroB4 = new Avaliacao( 9.0, provaBimestral, bimestre4, Pedro);
+        Avaliacao avaliacao1PedroB4 = new Avaliacao( 6.0, partSalaDeAula, bimestre4, Pedro);
+        Avaliacao avaliacao2PedroB4 = new Avaliacao( 6.0, entregaDasTarefas, bimestre4, Pedro);
+        Avaliacao avaliacao3PedroB4 = new Avaliacao( 6.5, trabalhoBimestral, bimestre4, Pedro);
+        Avaliacao avaliacao4PedroB4 = new Avaliacao( 6.0, provaBimestral, bimestre4, Pedro);
         avaliacaoRepository.saveAll(Arrays.asList(avaliacao1PedroB4, avaliacao2PedroB4, avaliacao3PedroB4, avaliacao4PedroB4));
 
         //adicionando Avaliacoes por bimestre da Maria no banco de dados
@@ -125,31 +125,31 @@ public class TesteConfig implements CommandLineRunner {
 
         //adicionando Avaliacoes por bimestre do Jose no banco de dados
         //1° Bimestre - Jose
-        Avaliacao avaliacao1JoseB1 = new Avaliacao( 6.0, partSalaDeAula, bimestre1, Jose);
+        Avaliacao avaliacao1JoseB1 = new Avaliacao( 5.0, partSalaDeAula, bimestre1, Jose);
         Avaliacao avaliacao2JoseB1 = new Avaliacao( 5.5, entregaDasTarefas, bimestre1, Jose);
-        Avaliacao avaliacao3JoseB1 = new Avaliacao( 6.0, trabalhoBimestral, bimestre1, Jose);
-        Avaliacao avaliacao4JoseB1 = new Avaliacao( 6.0, provaBimestral, bimestre1,Jose);
+        Avaliacao avaliacao3JoseB1 = new Avaliacao( 5.0, trabalhoBimestral, bimestre1, Jose);
+        Avaliacao avaliacao4JoseB1 = new Avaliacao( 10.0, provaBimestral, bimestre1,Jose);
         avaliacaoRepository.saveAll(Arrays.asList(avaliacao1JoseB1, avaliacao2JoseB1, avaliacao3JoseB1, avaliacao4JoseB1));
 
         //2° Bimestre - Jose
-        Avaliacao avaliacao1JoseB2 = new Avaliacao( 6.0, partSalaDeAula, bimestre2, Jose);
-        Avaliacao avaliacao2JoseB2 = new Avaliacao( 6.0, entregaDasTarefas, bimestre2, Jose);
-        Avaliacao avaliacao3JoseB2 = new Avaliacao( 6.5, trabalhoBimestral, bimestre2, Jose);
+        Avaliacao avaliacao1JoseB2 = new Avaliacao( 5.0, partSalaDeAula, bimestre2, Jose);
+        Avaliacao avaliacao2JoseB2 = new Avaliacao( 5.0, entregaDasTarefas, bimestre2, Jose);
+        Avaliacao avaliacao3JoseB2 = new Avaliacao( 5.5, trabalhoBimestral, bimestre2, Jose);
         Avaliacao avaliacao4JoseB2 = new Avaliacao( 6.0, provaBimestral, bimestre2, Jose);
         avaliacaoRepository.saveAll(Arrays.asList(avaliacao1JoseB2, avaliacao2JoseB2, avaliacao3JoseB2, avaliacao4JoseB2));
 
         //3° Bimestre - Jose
         Avaliacao avaliacao1JoseB3 = new Avaliacao( 5.0, partSalaDeAula, bimestre3, Jose);
-        Avaliacao avaliacao2JoseB3 = new Avaliacao( 6.0, entregaDasTarefas, bimestre3, Jose);
-        Avaliacao avaliacao3JoseB3 = new Avaliacao( 6.5, trabalhoBimestral, bimestre3, Jose);
-        Avaliacao avaliacao4JoseB3 = new Avaliacao( 6.0, provaBimestral, bimestre3, Jose);
+        Avaliacao avaliacao2JoseB3 = new Avaliacao( 5.0, entregaDasTarefas, bimestre3, Jose);
+        Avaliacao avaliacao3JoseB3 = new Avaliacao( 5.5, trabalhoBimestral, bimestre3, Jose);
+        Avaliacao avaliacao4JoseB3 = new Avaliacao( 5.0, provaBimestral, bimestre3, Jose);
         avaliacaoRepository.saveAll(Arrays.asList(avaliacao1JoseB3, avaliacao2JoseB3, avaliacao3JoseB3, avaliacao4JoseB3));
 
         //4° Bimestre - Jose
-        Avaliacao avaliacao1JoseB4 = new Avaliacao( 6.0, partSalaDeAula, bimestre4, Jose);
+        Avaliacao avaliacao1JoseB4 = new Avaliacao( 5.0, partSalaDeAula, bimestre4, Jose);
         Avaliacao avaliacao2JoseB4 = new Avaliacao( 5.5, entregaDasTarefas, bimestre4, Jose);
-        Avaliacao avaliacao3JoseB4 = new Avaliacao( 6.5, trabalhoBimestral, bimestre4, Jose);
-        Avaliacao avaliacao4JoseB4 = new Avaliacao( 6.0, provaBimestral, bimestre4, Jose);
+        Avaliacao avaliacao3JoseB4 = new Avaliacao( 4.5, trabalhoBimestral, bimestre4, Jose);
+        Avaliacao avaliacao4JoseB4 = new Avaliacao( 3.0, provaBimestral, bimestre4, Jose);
         avaliacaoRepository.saveAll(Arrays.asList(avaliacao1JoseB4, avaliacao2JoseB4, avaliacao3JoseB4, avaliacao4JoseB4));
 
         //Adicionando presenças do Pedro
@@ -170,10 +170,10 @@ public class TesteConfig implements CommandLineRunner {
 
         //Adicionando presenças do Jose
 
-        Presenca presencaJoseB1 = new Presenca(8, bimestre1, Jose);
-        Presenca presencaJoseB2 = new Presenca(7, bimestre2, Jose);
-        Presenca presencaJoseB3 = new Presenca(10, bimestre3, Jose);
-        Presenca presencaJoseB4 = new Presenca(11, bimestre4, Jose);
+        Presenca presencaJoseB1 = new Presenca(12, bimestre1, Jose);
+        Presenca presencaJoseB2 = new Presenca(15, bimestre2, Jose);
+        Presenca presencaJoseB3 = new Presenca(19, bimestre3, Jose);
+        Presenca presencaJoseB4 = new Presenca(20, bimestre4, Jose);
         presencaRepository.saveAll(Arrays.asList(presencaJoseB1, presencaJoseB2, presencaJoseB3, presencaJoseB4));
 
         //associações dos alunos aos bimestres

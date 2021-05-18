@@ -3,6 +3,7 @@ package arthur.com.example.escola.Aluno;
 import arthur.com.example.escola.Avaliacao.Avaliacao;
 import arthur.com.example.escola.Bimestre.Bimestre;
 import arthur.com.example.escola.Bimestre.NotaBimestre;
+import arthur.com.example.escola.Enums.SituacaoEnum;
 import arthur.com.example.escola.Presenca.Presenca;
 import arthur.com.example.escola.Presenca.PresencaBimestre;
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -29,11 +30,9 @@ public class Aluno implements Serializable {
     @OneToMany(mappedBy = "aluno")
     private List<Presenca> presencas = new ArrayList<>();
 
-
-    @ManyToMany         //nomeTabela        //nome da tabela aluno e bimestre
-    @JoinTable(name = "tb_AlunoBimestre",
-            joinColumns = @JoinColumn(name = "aluno_id"),
-            inverseJoinColumns = @JoinColumn(name = "bimestre_id"))
+    @JsonIgnore
+    @ManyToMany         //nomeTabela        //nome da chave estrangeira aluno e bimestre
+    @JoinTable(name = "tb_AlunoBimestre", joinColumns = @JoinColumn(name = "aluno_id"), inverseJoinColumns = @JoinColumn(name = "bimestre_id"))
     private List<Bimestre> bimestres = new ArrayList<>();
 
     public Aluno(){
@@ -191,6 +190,20 @@ public class Aluno implements Serializable {
         return totalFaltas;
     }
 
+    public SituacaoEnum getSituacaoFinal(){
+        double porcentagemDaPresenca = 0.0;
+        int codigo = 0;
+        for(Bimestre bimestre : bimestres){
+            porcentagemDaPresenca = 100.0 - ((getTotalFaltas() * 100.0) / (bimestre.getdiasLetivosBimestre() * 4.0));
+            if(porcentagemDaPresenca < 75.0 || getMediaFinal() < 5.0){
+                codigo = 2;
+            }else if(porcentagemDaPresenca >= 75.0 && getMediaFinal() >= 6.0){
+                codigo = 1;
+            }else
+                codigo = 3;
+        }
+        return SituacaoEnum.valor(codigo);
+    }
 
     @Override
     public boolean equals(Object o) {
