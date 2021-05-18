@@ -3,18 +3,18 @@ package arthur.com.example.escola.Aluno;
 import arthur.com.example.escola.Avaliacao.Avaliacao;
 import arthur.com.example.escola.Bimestre.Bimestre;
 import arthur.com.example.escola.Bimestre.NotaBimestre;
+import arthur.com.example.escola.Presenca.Presenca;
+import arthur.com.example.escola.Presenca.PresencaBimestre;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.*;
 
 @Entity
 @Table(name = "tb_aluno")
 public class Aluno implements Serializable {
+
     @Id
     private Long matricula;
     private String nome;
@@ -24,6 +24,10 @@ public class Aluno implements Serializable {
     @JsonIgnore
     @OneToMany(mappedBy = "aluno")
     private List<Avaliacao> avaliacoes = new ArrayList<>();
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "aluno")
+    private List<Presenca> presencas = new ArrayList<>();
 
     public Aluno(){
     }
@@ -71,7 +75,11 @@ public class Aluno implements Serializable {
         return avaliacoes;
     }
 
-    public List<NotaBimestre> getMediaAlunoPorBimestre(){
+    public List<Presenca> getPresencas() {
+        return presencas;
+    }
+
+    public List<NotaBimestre> MediaAlunoPorBimestre(){
         List<NotaBimestre> returnNotas = new ArrayList<>();
         Map<Bimestre, List<Avaliacao>> agrupados = agrupar(avaliacoes);
 
@@ -119,10 +127,57 @@ public class Aluno implements Serializable {
     }
     public double getMediaFinal(){
         double mediaFinal = 0.0;
-        for(NotaBimestre media : getMediaAlunoPorBimestre()){
+        for(NotaBimestre media : MediaAlunoPorBimestre()){
             mediaFinal += media.getNota();
         }
         return mediaFinal/4;
+    }
+
+    public List<PresencaBimestre>SomaDasFaltas(){
+        List<PresencaBimestre> returnPresencas = new ArrayList<>();
+        Map<Bimestre, List<Presenca>> agrupados = agruparPresencas(presencas);
+
+        for(Map.Entry<Bimestre, List<Presenca>> valores : agrupados.entrySet()){ //entrySet cria um conjunto dos mesmos elementos contidos no mapa hash
+
+            Bimestre bimestreAtual = valores.getKey(); //pega a chave de 1 campo da tabela hash
+            List<Presenca> presencasPorBimestre = valores.getValue(); //pega todos os valores de 1 chave da tabela hash
+
+            int somaPresenca=0;
+            for(Presenca a : presencasPorBimestre){ //presenca por bimestre
+               somaPresenca += a.getNumeroDeFaltas();
+            }
+
+            PresencaBimestre presencaBimestre = new PresencaBimestre(bimestreAtual, somaPresenca );
+            returnPresencas.add(presencaBimestre);
+        }
+
+        return returnPresencas;
+
+    }
+
+    public Map<Bimestre, List<Presenca>> agruparPresencas(List<Presenca> presencas) {
+        Map<Bimestre, List<Presenca>> agrupados = new HashMap<>();
+
+        for (Presenca presenca : presencas) {
+            Bimestre bimestreAtual = presenca.getBimestre();
+            if (!agrupados.containsKey(bimestreAtual)) { //se a tabela hash ainda não tiver um bimestre, ela insere
+                List<Presenca> p = new ArrayList<>();
+                p.add(presenca);
+                agrupados.put(bimestreAtual, p); //adicionar na tabela hash a presenca respectiva ao bimestre
+            } else {
+                List<Presenca> pres = agrupados.get(bimestreAtual); //pega o bismestre atual
+                pres.add(presenca);
+            }
+        }
+        return agrupados;
+    }
+
+    public int getTotalFaltas(){
+        int totalFaltas=0;
+        for(PresencaBimestre falta : SomaDasFaltas()){
+            totalFaltas += falta.getPresenca();
+        }
+        return totalFaltas;
     }
 
     @Override

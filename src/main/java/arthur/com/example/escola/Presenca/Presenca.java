@@ -1,6 +1,8 @@
 package arthur.com.example.escola.Presenca;
 
+import arthur.com.example.escola.Aluno.Aluno;
 import arthur.com.example.escola.Bimestre.Bimestre;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -19,12 +21,18 @@ public class Presenca implements Serializable {
     @JoinColumn(name = "id_bimestre") //nome da chave estrangeira
     private Bimestre bimestre;
 
+    @JsonIgnore
+    @ManyToOne
+    @JoinColumn(name = "id_aluno")
+    private Aluno aluno;
+
     public Presenca() {
     }
 
-    public Presenca(Integer numeroDeFaltas, Bimestre bimestre) {
+    public Presenca(Integer numeroDeFaltas, Bimestre bimestre, Aluno aluno) {
         this.bimestre = bimestre;
         this.numeroDeFaltas = numeroDeFaltas;
+        this.aluno = aluno;
     }
 
     public Long getId() {
@@ -49,6 +57,14 @@ public class Presenca implements Serializable {
 
     public void setBimestre(Bimestre bimestre) {
         this.bimestre = bimestre;
+    }
+
+    public Aluno getAluno() {
+        return aluno;
+    }
+
+    public void setAluno(Aluno aluno) {
+        this.aluno = aluno;
     }
 
     @Override

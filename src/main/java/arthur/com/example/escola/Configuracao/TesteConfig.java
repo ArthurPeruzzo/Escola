@@ -151,13 +151,29 @@ public class TesteConfig implements CommandLineRunner {
         Avaliacao avaliacao4JoseB4 = new Avaliacao( 6.0, provaBimestral, bimestre4, Jose);
         avaliacaoRepository.saveAll(Arrays.asList(avaliacao1JoseB4, avaliacao2JoseB4, avaliacao3JoseB4, avaliacao4JoseB4));
 
-        //Adicionando presenças
+        //Adicionando presenças do Pedro
 
-        Presenca presenca = new Presenca(5, bimestre1);
-        Presenca presenca1 = new Presenca(4, bimestre2);
-        Presenca presenca2 = new Presenca(3, bimestre3);
-        Presenca presenca3 = new Presenca(2, bimestre4);
-        presencaRepository.saveAll(Arrays.asList(presenca, presenca1, presenca2, presenca3));
+        Presenca presencaPedroB1 = new Presenca(5, bimestre1, Pedro);
+        Presenca presencaPedroB2 = new Presenca(4, bimestre2, Pedro);
+        Presenca presencaPedroB3 = new Presenca(3, bimestre3, Pedro);
+        Presenca presencaPedroB4 = new Presenca(2, bimestre4, Pedro);
+        presencaRepository.saveAll(Arrays.asList(presencaPedroB1, presencaPedroB2, presencaPedroB3, presencaPedroB4));
+
+        //Adicionando presenças da Maria
+
+        Presenca presencaMariaB1 = new Presenca(2, bimestre1, Maria);
+        Presenca presencaMariaB2 = new Presenca(1, bimestre2, Maria);
+        Presenca presencaMariaB3 = new Presenca(2, bimestre3, Maria);
+        Presenca presencaMariaB4 = new Presenca(3, bimestre4, Maria);
+        presencaRepository.saveAll(Arrays.asList(presencaMariaB1, presencaMariaB2, presencaMariaB3, presencaMariaB4));
+
+        //Adicionando presenças do Jose
+
+        Presenca presencaJoseB1 = new Presenca(8, bimestre1, Jose);
+        Presenca presencaJoseB2 = new Presenca(7, bimestre2, Jose);
+        Presenca presencaJoseB3 = new Presenca(10, bimestre3, Jose);
+        Presenca presencaJoseB4 = new Presenca(11, bimestre4, Jose);
+        presencaRepository.saveAll(Arrays.asList(presencaJoseB1, presencaJoseB2, presencaJoseB3, presencaJoseB4));
 
     }
 
