@@ -1,0 +1,6 @@
+2021-05-18 19:54:34 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "TB_ALUNO" not found; SQL statement:
+select aluno0_.matricula as matricul1_0_0_, aluno0_.email as email2_0_0_, aluno0_.nome as nome3_0_0_, aluno0_.telefone as telefone4_0_0_ from tb_aluno aluno0_ where aluno0_.matricula=? [42102-200]
+2021-05-18 20:01:40 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "TB_ALUNO" not found; SQL statement:
+select aluno0_.matricula as matricul1_0_0_, aluno0_.email as email2_0_0_, aluno0_.nome as nome3_0_0_, aluno0_.telefone as telefone4_0_0_ from tb_aluno aluno0_ where aluno0_.matricula=? [42102-200]

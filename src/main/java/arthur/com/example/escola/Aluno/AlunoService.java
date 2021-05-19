@@ -1,6 +1,10 @@
 package arthur.com.example.escola.Aluno;
 
+import arthur.com.example.escola.Excecoes.DatabaseException;
+import arthur.com.example.escola.Excecoes.ResourceNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -18,7 +22,7 @@ public class AlunoService {
 
     public Aluno buscarPorMatricula( Long matricula){
          Optional<Aluno> aluno = alunoRepository.findById(matricula);
-         return aluno.get();
+         return aluno.orElseThrow(()-> new ResourceNotFoundException(matricula));
     }
 
     public void inserirAluno(Aluno aluno){
@@ -26,7 +30,14 @@ public class AlunoService {
     }
 
     public void deletarAluno(Long matricula){
-       alunoRepository.deleteById(matricula);
+       try{
+           alunoRepository.deleteById(matricula);
+       }catch (EmptyResultDataAccessException e){
+           throw new ResourceNotFoundException(matricula);
+       }catch (DataIntegrityViolationException e){
+           throw new DatabaseException(e.getMessage());
+       }
+
     }
 
     public Aluno atualizarAluno(Long matricula, Aluno aluno){

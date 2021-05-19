@@ -14,13 +14,12 @@ import arthur.com.example.escola.TipoAvaliacao.TipoAvaliacaoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Profile;
 
 import java.time.LocalDate;
 import java.util.Arrays;
 
 @Configuration //fala que essa classe é especifica para configuração
-@Profile("test") //especifica para o perfil de teste
+
 public class TesteConfig implements CommandLineRunner {
 
     @Autowired

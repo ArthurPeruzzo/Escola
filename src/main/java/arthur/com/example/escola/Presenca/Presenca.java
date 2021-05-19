@@ -17,11 +17,11 @@ public class Presenca implements Serializable {
     private Long id;
     private Integer numeroDeFaltas;
 
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "id_bimestre") //nome da chave estrangeira
     private Bimestre bimestre;
 
-    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "id_aluno")
     private Aluno aluno;
